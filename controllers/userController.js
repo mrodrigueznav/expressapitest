@@ -27,8 +27,24 @@ const handleUserSubmit = async (req, res) => {
 
 const handleGetAllUsers = async (req, res) => {
     try {
-        const usuarios = await usuario.findAll();
-        res.status(200).json(usuarios);
+        const { page = 1, limit = 10 } = req.query;
+        const offset = (page - 1) * limit;
+
+        const { 
+            rows: usuarios,
+            count: total
+            } = await usuario.findAndCountAll({
+                limit: Number(limit),
+                offset: Number(offset),
+            });
+
+        res.status(200).json({
+            total,
+            usuarios,
+            page: Number(page),
+            limit: Number(limit),
+        });
+    
     } catch (error) {
         logger.error(`Error al obtener los usuarios: ${error.message}`);
         res.status(500).json({ error: "No se pudo obtener los usuarios" });
