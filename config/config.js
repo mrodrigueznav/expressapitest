@@ -6,7 +6,7 @@ module.exports = {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME,
         host: process.env.DB_HOST,
-        dialect: 'mssql',
+        dialect:  process.env.DIALECT,
         dialectOptions: {
             options: {
                 encrypt: true,
@@ -20,7 +20,7 @@ module.exports = {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME,
         host: process.env.DB_HOST,
-        dialect: 'mssql',
+        dialect:  process.env.DIALECT,
         dialectOptions: {
             options: {
                 encrypt: true,
