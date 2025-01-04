@@ -1,0 +1,35 @@
+{
+  "development": {
+    "username": "lolwtfno",
+    "password": null,
+    "database": "apitest",
+    "host": "gsya.database.windows.net",
+    "dialect": "mssql",
+    "logging": true,
+    "dialectOptions": {
+      "encrypt": true,
+      "requestTimeout": 9000000,
+      "options": { "requestTimeout": 9000000 }
+    },
+    "pool": {
+      "max": 100000,
+      "min": 0,
+      "idle": 1000000,
+      "acquire": 1000000
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
